@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.raju.karthikeyan.demomvvmapplication.usecase.UseCaseOne
+import com.raju.karthikeyan.demomvvmapplication.usecase.UseCaseTwo
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel = ViewModelProvider(this ).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this , MainViewModelFactory(UseCaseOne("Dep 1"), UseCaseTwo("Dep 2"))).get(MainViewModel::class.java)
 
         observeViewModalData()
         viewModel.startTimer()
