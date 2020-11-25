@@ -1,9 +1,14 @@
 package com.raju.karthikeyan.demomvvmapplication.usecase
 
-class UseCaseOne(private val name: String) {
+import android.content.Context
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
+class UseCaseOne @Inject constructor(@ApplicationContext context: Context) {
 
-    override fun toString(): String {
-        return "usecaseOne(name='$name')"
+    fun print(){
+        println("Use Case 1")
     }
 }
