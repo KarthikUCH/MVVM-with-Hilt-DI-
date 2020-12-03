@@ -7,8 +7,9 @@ import com.raju.karthikeyan.demomvvmapplication.base.BaseViewModel
 import com.raju.karthikeyan.demomvvmapplication.usecase.UseCaseOne
 import com.raju.karthikeyan.demomvvmapplication.usecase.UseCaseTwo
 import java.util.*
+import javax.inject.Inject
 
-class MainViewModel constructor (context: Context, private val useCaseOne: UseCaseOne, private val useCaseTwo: UseCaseTwo) : BaseViewModel() {
+class MainViewModel @Inject constructor (context: Context, private val useCaseOne: UseCaseOne, private val useCaseTwo: UseCaseTwo) : BaseViewModel() {
     private val ONE_SECOND = 1000L
     private val count = MutableLiveData<Int>()
     var timer: Timer = Timer()
