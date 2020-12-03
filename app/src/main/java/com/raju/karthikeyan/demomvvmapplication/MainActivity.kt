@@ -1,20 +1,19 @@
 package com.raju.karthikeyan.demomvvmapplication
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.raju.karthikeyan.demomvvmapplication.base.BaseActivity
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
-@AndroidEntryPoint
 class MainActivity : BaseActivity() {
     private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        (application as DemoApplication).getAppComponent().inject(this)
 
         observeBaseEvent(viewModel)
         observeViewModalData()
